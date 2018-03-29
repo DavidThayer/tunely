@@ -1,0 +1,22 @@
+{
+  "name": "tunely",
+  "version": "1.0.0",
+  "description": "new tunely app",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidThayer/tunely.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidThayer/tunely/issues"
+  },
+  "homepage": "https://github.com/DavidThayer/tunely#readme"
+}
