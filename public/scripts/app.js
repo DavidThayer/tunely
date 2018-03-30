@@ -50,6 +50,12 @@ function handleError(err) {
 
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
+  console.log(album.songs);
+  var arrayOfSongString = album.songs.map(function (eachSong) {
+  return `${ eachSong.trackNumber } - ${ eachSong.name }`;
+  });
+
+  var formattedSongsStr = arrayOfSongString.join(', ');
   console.log('rendering album:', album);
   $('#albums').append(`
             <!-- one album -->
@@ -69,17 +75,21 @@ function renderAlbum(album) {
                         <ul class="list-group">
                           <li class="list-group-item">
                             <h4 class='inline-header'>Album Name:</h4>
-                            <span class='album-name'>${album.name}</span>
+                            <span class='album-name'>${ album.name }</span>
                           </li>
 
                           <li class="list-group-item">
                             <h4 class='inline-header'>Artist Name:</h4>
-                            <span class='artist-name'>${album.artistName}</span>
+                            <span class='artist-name'>${ album.artistName }</span>
                           </li>
 
                           <li class="list-group-item">
                             <h4 class='inline-header'>Released date:</h4>
-                            <span class='album-releaseDate'>${album.releaseDate}</span>
+                            <span class='album-releaseDate'>${ album.releaseDate }</span>
+                          </li>
+                          <li class="list-group-item">
+                            <h4 class='inline-header'>Songs:</h4>
+                            <span class='album-releaseDate'>${ formattedSongsStr }</span>
                           </li>
                         </ul>
                       </div>

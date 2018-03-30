@@ -16,6 +16,8 @@ function index(req, res) {
 function create(req, res) {
   // create an album based on request body and send it back as JSON
   console.log('create route created');
+  var genres = req.body.genres.split(', ');
+  req.body.genres = genres;
   db.Album.create(req.body, function(err, foundAlbums) {
     res.json(foundAlbums);
 

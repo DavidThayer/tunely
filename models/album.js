@@ -3,12 +3,15 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema
 var db = require('../models'); // configure express server
 
+var Song = require('./song');
+
 //models/album.js
 var AlbumSchema = new Schema({
   artistName: String,
   name: String,
   releaseDate: String,
-  genres: [ String ]
+  genres: [ String ],
+  songs: [ Song.schema ]
 });
 
 var Album = mongoose.model('Album', AlbumSchema);
