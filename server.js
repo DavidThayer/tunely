@@ -1,9 +1,11 @@
 // server side javascript
 
 
-var express = require('express'),
-  db = require('./models'); // configure express server
+var express = require('express');
 var app = express(); // initialize express function ( server running)
+
+var controllers = require('./controllers');
+
 
 app.use(express.static('public')); // point server to use all files in directory (to include css, app.js, others...)
 
@@ -21,3 +23,6 @@ app.listen(3000);
 var controllers = require('./controllers');
 
 app.get('/api', controllers.api.index);
+
+// var albums = require('./')
+app.get('/api/albums', controllers.albums.index)
