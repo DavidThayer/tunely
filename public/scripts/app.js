@@ -9,19 +9,12 @@
 
 $(document).ready(function() {
   console.log('app.js loaded!');
-  // $.ajax({
-  //   method: 'GET',
-  //   url: '/api/albums',
-  //   success: function(allAlbumsFromServer) {
-  //     allAlbumsFromServer.forEach(function(eachAlbum) {
-  //       renderAlbum(eachAlbum);
-  //     })
-  //   }
-  // })
+  $( "#form" ).submit(function(event) {
+    event.preventDefault();
+    var formData = $(this).serialize();
+    console.log(formData);
+  })
 
-  // sampleAlbums.forEach(function(album) {
-  //   renderAlbum(album);
-  // })
 
   $.ajax({
     method: 'GET',
