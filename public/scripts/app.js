@@ -13,6 +13,15 @@ $(document).ready(function() {
     event.preventDefault();
     var formData = $(this).serialize();
     console.log(formData);
+    $(this).trigger("reset");
+
+    $.ajax({
+      method: 'POST',
+      url: '/api/albums',
+      data: formData,
+      success: handlePostSuccess,
+      error: handleError
+    })
   })
 
 
@@ -23,6 +32,9 @@ $(document).ready(function() {
     error: handleError
   });
 
+function handlePostSuccess(foundAlbums) {
+    renderAlbum(foundAlbums);
+}
 
 function handleSuccess(albums) {
   albums.forEach(function(singleSampleAlbums) {
@@ -33,6 +45,8 @@ function handleSuccess(albums) {
 function handleError(err) {
   console.log('Throwing error: ', err);
 }
+
+
 
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
